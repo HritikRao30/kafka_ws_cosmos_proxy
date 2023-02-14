@@ -1,0 +1,32 @@
+extends ../layout
+
+block pagecontent
+    include ../includes/header.pug
+    h1 Welcome to #{pageTitle}
+    .row
+        .col-sm-6
+            button.btn.btn-primary.btn-block#cityLoad Subscribe to cities
+            .row 
+                .col-sm-6
+                    .ul#city_list_body
+
+        .col-sm-6
+            button.btn.btn-primary.btn-block#devLoad Subscribe to development
+            .row 
+                .col-sm-6
+                    .ul#dev_list_body
+        .col-sm-6
+            button.btn.btn-primary.btn-block#kafkaLoad Subscribe to kafka
+            .row 
+                .col-sm-6
+                    .ul#kafka_list_body
+
+block pagescripts
+    script#servicesDev(type="text/x-jsrender")
+        <li>{{:data}}</li>
+    script#servicesCity(type="text/x-jsrender")
+        <li>{{:data}}</li>
+    script#servicesKafka(type="text/x-jsrender")
+        <li>{{:data}}</li>
+    script(src="/javascripts/clientApp.js") 
+    
